@@ -53,6 +53,8 @@ body {
     left: 50%;
     /* Since positioning above 'starts' from top left corner, using transform to shift text-box 'target' to center. */
     transform: translate(-50%, -50%);
+    /* Since button below is within a inline-block (text), centering text will align button.  */
+    text-align: center;
 }
 
 .heading-primary {
@@ -60,6 +62,7 @@ body {
     text-transform: uppercase;
     /* Prevents minor animation 'hop' that can occur for some web browsers. */
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 .heading-primary-main {
     display: block;
@@ -115,8 +118,34 @@ body {
     }
 }
 
+.btn:link,
+.btn:visited { 
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+
+}
+
     /* --- ANIMATION NOTES --- */
-    
+
     /*Additional CCC Animation functionality. 
     - Delays and Iteration Counts.
     animation-delay: 3s;
@@ -124,3 +153,4 @@ body {
     - Other animations
     transform: rotate(180deg);
      */
+
