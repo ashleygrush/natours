@@ -58,12 +58,17 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+    /* Prevents minor animation 'hop' that can occur for some web browsers. */
+    backface-visibility: hidden;
 }
 .heading-primary-main {
     display: block;
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -71,4 +76,51 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
+
+/* Animation to move object in from the left. */
+@keyframes moveInLeft {
+    /* Starts animation. */
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        transform: translate(10px);
+    }
+    /* Ends animation. */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/* Animation to move object in from the left. */
+@keyframes moveInRight {
+    /* Starts animation. */
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translate(-10px);
+    }
+    /* Ends animation. */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+    /* --- ANIMATION NOTES --- */
+    
+    /*Additional CCC Animation functionality. 
+    - Delays and Iteration Counts.
+    animation-delay: 3s;
+    animation-iteration-count: 3;
+    - Other animations
+    transform: rotate(180deg);
+     */
